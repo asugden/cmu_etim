@@ -1,0 +1,105 @@
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    background-color: #B01C33;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.input {
+    width: 800px;
+    height: 200px;
+    margin: 200px auto;
+}
+
+input {
+    border-radius: 5px;
+    border: 4px solid #CCCCCC;
+    outline: none;
+    width: 800px;
+    font-weight: 300;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#nearest {
+    color: #000000;
+    font-weight: 300;
+    font-size: 18px;
+    width: 100%;
+}
+
+.match {
+    display: block;
+    margin-left: 200px;
+    width: 384px;
+    border: 5px solid #6666666;
+    background: #DDDDDD;
+    padding: 8px;
+    border-radius: 2px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.match span {
+    float: right;
+    font-weight: 300;
+    text-align: right;
+}
+
+#try {
+    font-size: 12px;
+    font-weight: 300;
+}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+function formsubmit() {
+    let txt = $('#words').val().toLowerCase().trim().replace('  ', ' ');
+    $.getJSON('query', {'word': txt}, function(data) {
+        if (data.is_cake) {
+            $('#nearest').html(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M352 111.1c22.09 0 40-17.88 40-39.97S352 0 352 0s-40 49.91-40 72S329.9 111.1 352 111.1zM224 111.1c22.09 0 40-17.88 40-39.97S224 0 224 0S184 49.91 184 72S201.9 111.1 224 111.1zM383.1 223.1L384 160c0-8.836-7.164-16-16-16h-32C327.2 144 320 151.2 320 160v64h-64V160c0-8.836-7.164-16-16-16h-32C199.2 144 192 151.2 192 160v64H128V160c0-8.836-7.164-16-16-16h-32C71.16 144 64 151.2 64 160v63.97c-35.35 0-64 28.65-64 63.1v68.7c9.814 6.102 21.39 11.33 32 11.33c20.64 0 45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C114.1 348.3 139.4 367.1 160 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C242.1 348.3 267.4 367.1 288 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C370.1 348.3 395.4 367.1 416 367.1c10.61 0 22.19-5.227 32-11.33V287.1C448 252.6 419.3 223.1 383.1 223.1zM352 373.3c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66c-11.27 0-22.09-3.121-32-7.377v87.38C0 497.7 14.33 512 32 512h384c17.67 0 32-14.33 32-32v-87.38c-9.91 4.256-20.73 7.377-32 7.377C390 399.1 365.8 384.3 352 373.3zM96 111.1c22.09 0 40-17.88 40-39.97S96 0 96 0S56 49.91 56 72S73.91 111.1 96 111.1z"/></svg><center>Cake!</center>'
+            );
+        }
+        else {
+            $('#nearest').html(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M352 493.4C322.4 505.4 289.9 512 256 512C222.1 512 189.6 505.4 160 493.4V288C160 279.2 152.8 272 144 272C135.2 272 128 279.2 128 288V477.8C51.48 433.5 0 350.8 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 350.8 460.5 433.5 384 477.8V288C384 279.2 376.8 272 368 272C359.2 272 352 279.2 352 288V493.4zM217.6 236.8C224.7 231.5 226.1 221.5 220.8 214.4C190.4 173.9 129.6 173.9 99.2 214.4C93.9 221.5 95.33 231.5 102.4 236.8C109.5 242.1 119.5 240.7 124.8 233.6C142.4 210.1 177.6 210.1 195.2 233.6C200.5 240.7 210.5 242.1 217.6 236.8zM316.8 233.6C334.4 210.1 369.6 210.1 387.2 233.6C392.5 240.7 402.5 242.1 409.6 236.8C416.7 231.5 418.1 221.5 412.8 214.4C382.4 173.9 321.6 173.9 291.2 214.4C285.9 221.5 287.3 231.5 294.4 236.8C301.5 242.1 311.5 240.7 316.8 233.6zM208 368C208 394.5 229.5 416 256 416C282.5 416 304 394.5 304 368V336C304 309.5 282.5 288 256 288C229.5 288 208 309.5 208 336V368z"/></svg><center>Not-a-cake</center>'
+            );
+        }
+        
+        data['similar'].forEach(function (sim) {
+            if (!word_arr.includes(sim[0].toLowerCase())) {
+                $('#nearest').append('<div class="match">' + sim[0].toLowerCase().substring(0, 24) + '<span>' + sim[1].toFixed(3) + '</span></div>');
+            }
+        });
+    });
+}
+    </script>
+</head>
+<body>
+    <div class="input">
+        <form onsubmit="formsubmit(); return false">
+            <center>Is it cake or not-a-cake?</center>
+            <input id="words">
+        </form>
+        <div id="nearest">
+        </div>
+
+        <div id="try">
+            <p>cherry tortoni</p>
+            <p>cherry-almond crisp</p>
+            <p>beet and cabbage borscht</p>
+            <p>almond-apricot food processor cake</p>
+            <p>strawberry shortcake with thyme and whipped cream</p>
+        </div>
+    </div>
+</body>
+</html>
