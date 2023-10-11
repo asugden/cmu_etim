@@ -1,8 +1,6 @@
-# CMU ETIM
+# EXAMPLE MODELS
 
-A celebration of 15 years!
-
-Also, a repository for projects with the program in Engineering &amp; Technology Innovation Management at Carnegie Mellon University.
+Example models for coursework at Carnegie Mellon University.
 
 # Data sources:
 
